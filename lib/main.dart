@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projecto/screens/home_prueba.dart';
-import 'package:projecto/screens/tema_screen.dart';
+import 'package:sp2/screens/home.dart';
 
 /// Flutter code sample for [Scaffold].
 
@@ -12,21 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: TemaScreen(),
+      home: HomeScreen(),
     );
-  }
-}
-
-class CoursesDisplay extends StatefulWidget {
-  const CoursesDisplay({super.key});
-
-  @override
-  State<CoursesDisplay> createState() => _CoursesDisplayState();
-}
-
-class _CoursesDisplayState extends State<CoursesDisplay> {
-  @override
-  Widget build(BuildContext context) {
-    return const HomeScreen();
   }
 }

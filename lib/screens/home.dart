@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projecto/widgets/card_course.dart';
+import 'package:sp2/widgets/column_semester.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -7,120 +7,75 @@ class HomeScreen extends StatelessWidget {
   // Definición del mapa de semestres y cursos
   final Map<String, List<Map<String, dynamic>>> semesters = const {
     "SEMESTRE 1": [
-      {"name": "Matematica 1", "color": Color.fromRGBO(246, 224, 94, 1)},
-      {"name": "Fisica 1", "color": Color.fromRGBO(72, 255, 16, 1)},
       {
-        "name": "Ciencias de la computación 1",
-        "color": Color.fromRGBO(255, 22, 166, 1)
+        "id": "CS101",
+        "name": "Matemática 1",
+        "description":
+            "Introducción a los conceptos fundamentales del cálculo diferencial e integral, incluyendo límites, derivadas e integrales.",
+        "color": 0xFFDAEBFE,
+        "icon": "math_symbols"
       },
-      {"name": "Química 1", "color": Color.fromRGBO(0, 150, 136, 1)},
-      {"name": "Historia 1", "color": Color.fromRGBO(255, 87, 34, 1)},
-      {"name": "Inglés 1", "color": Color.fromRGBO(33, 150, 243, 1)},
-    ],
-    "SEMESTRE 2": [
-      {"name": "Matematica 2", "color": Color(0xfff6e05e)},
-      {"name": "Fisica 2", "color": Color.fromRGBO(72, 255, 16, 1)},
       {
-        "name": "Ciencias de la computación 2",
-        "color": Color.fromRGBO(255, 22, 166, 1)
+        "id": "PH101",
+        "name": "Física 1",
+        "description":
+            "Estudio de los principios básicos de la mecánica clásica, incluyendo cinemática, dinámica y conservación de la energía.",
+        "color": 0xFFDDFCE6,
+        "icon": "physics"
       },
-      {"name": "Química 2", "color": Color.fromRGBO(0, 150, 136, 1)},
-      {"name": "Historia 2", "color": Color.fromRGBO(255, 87, 34, 1)},
-      {"name": "Inglés 2", "color": Color.fromRGBO(33, 150, 243, 1)},
-    ],
-    "SEMESTRE 3": [
-      {"name": "Matematica 3", "color": Color(0xfff6e05e)},
-      {"name": "Fisica 3", "color": Color.fromRGBO(72, 255, 16, 1)},
       {
-        "name": "Ciencias de la computación 3",
-        "color": Color.fromRGBO(255, 22, 166, 1)
+        "id": "CS201",
+        "name": "Ciencias de la Computación 1",
+        "description":
+            "Introducción a los conceptos fundamentales de la ciencia de la computación, incluyendo algoritmos y estructuras de datos básicas.",
+        "color": 0xFFFEF8C2,
+        "icon": "computer"
       },
-      {"name": "Química 3", "color": Color.fromRGBO(0, 150, 136, 1)},
-      {"name": "Historia 3", "color": Color.fromRGBO(255, 87, 34, 1)},
-      {"name": "Inglés 3", "color": Color.fromRGBO(33, 150, 243, 1)},
-    ],
-    "SEMESTRE 4": [
-      {"name": "Matematica 4", "color": Color(0xfff6e05e)},
-      {"name": "Fisica 4", "color": Color.fromRGBO(72, 255, 16, 1)},
       {
-        "name": "Ciencias de la computación 4",
-        "color": Color.fromRGBO(255, 22, 166, 1)
+        "id": "INF101",
+        "name": "Informática 1",
+        "description":
+            "Conceptos básicos de informática, sistemas operativos, y uso de software común en el ámbito profesional y académico.",
+        "color": 0xFFFEE3E3,
+        "icon": "laptop"
       },
-      {"name": "Química 4", "color": Color.fromRGBO(0, 150, 136, 1)},
-      {"name": "Historia 4", "color": Color.fromRGBO(255, 87, 34, 1)},
-      {"name": "Inglés 4", "color": Color.fromRGBO(33, 150, 243, 1)},
-    ],
-    "SEMESTRE 5": [
-      {"name": "Matematica 5", "color": Color(0xfff6e05e)},
-      {"name": "Fisica 5", "color": Color.fromRGBO(72, 255, 16, 1)},
       {
-        "name": "Ciencias de la computación 5",
-        "color": Color.fromRGBO(255, 22, 166, 1)
+        "id": "TD101",
+        "name": "Tecnología Descriptiva",
+        "description":
+            "Estudio de técnicas y herramientas para representar gráficamente ideas y proyectos, incluyendo dibujo técnico y CAD.",
+        "color": 0xFFF2E9FF,
+        "icon": "blueprint"
       },
-      {"name": "Química 5", "color": Color.fromRGBO(0, 150, 136, 1)},
-      {"name": "Historia 5", "color": Color.fromRGBO(255, 87, 34, 1)},
-      {"name": "Inglés 5", "color": Color.fromRGBO(33, 150, 243, 1)},
-    ],
-    "SEMESTRE 6": [
-      {"name": "Matematica 6", "color": Color(0xfff6e05e)},
-      {"name": "Fisica 6", "color": Color.fromRGBO(72, 255, 16, 1)},
       {
-        "name": "Ciencias de la computación 6",
-        "color": Color.fromRGBO(255, 22, 166, 1)
-      },
-      {"name": "Química 6", "color": Color.fromRGBO(0, 150, 136, 1)},
-      {"name": "Historia 6", "color": Color.fromRGBO(255, 87, 34, 1)},
-      {"name": "Inglés 6", "color": Color.fromRGBO(33, 150, 243, 1)},
-    ],
+        "id": "TIA101",
+        "name": "Técnicas de Investigación y Aprendizaje",
+        "description":
+            "Desarrollo de habilidades investigativas, técnicas de estudio y aprendizaje efectivo, con un enfoque en la metodología científica.",
+        "color": 0xFFFEEDD4,
+        "icon": "magnifying_glass"
+      }
+    ]
   };
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Note Search'),
+        title: const Center(child: Text('Note Search')),
+        backgroundColor: Theme.of(context).colorScheme.onPrimary,
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
           children: semesters.entries.map((entry) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Column(
-                children: [
-                  Container(
-                    color: Colors.grey,
-                    padding: const EdgeInsets.all(8.0),
-                    child: Center(
-                      child: Text(
-                        entry.key, // Título del semestre
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: GridView.count(
-                      crossAxisCount: 2, // 2 columnas
-                      crossAxisSpacing: 8.0, // Espacio entre las columnas
-                      mainAxisSpacing: 8.0, // Espacio entre las filas
-                      physics:
-                          const NeverScrollableScrollPhysics(), // Desactiva el scroll dentro del GridView
-                      shrinkWrap: true, // Se ajusta al contenido disponible
-                      children: entry.value.map((course) {
-                        return CourseCard(
-                          name: course["name"],
-                          borderColor: course["color"],
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                ],
-              ),
+            return ColumnSemester(
+              semester: entry,
             );
           }).toList(),
         ),
       ),
-      backgroundColor: const Color.fromARGB(16, 24, 41, 255),
+      backgroundColor: const Color.fromARGB(255, 242, 245, 246),
     );
   }
 }

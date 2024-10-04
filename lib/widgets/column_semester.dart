@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projecto/widgets/card_course.dart';
+import 'package:sp2/screens/tema_screen.dart';
+import 'package:sp2/widgets/card_course.dart';
 
 class ColumnSemester extends StatelessWidget {
   final MapEntry<String, List<Map<String, dynamic>>> semester;
@@ -44,9 +45,18 @@ class ColumnSemester extends StatelessWidget {
                             children: semester.value.map((course) {
                               return Padding(
                                   padding: const EdgeInsets.all(10),
-                                  child: CourseCard(
-                                    name: course["name"],
-                                    borderColor: course["color"],
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      MaterialPageRoute route =
+                                          MaterialPageRoute(
+                                              builder: (context) => TemaScreen(
+                                                  cursoID: course["id"]));
+                                      Navigator.push(context, route);
+                                    },
+                                    child: CourseCard(
+                                      name: course["name"],
+                                      borderColor: Color(course["color"]),
+                                    ),
                                   ));
                             }).toList(),
                           ))),

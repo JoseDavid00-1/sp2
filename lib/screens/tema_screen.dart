@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:projecto/screens/columnas.dart';
+import 'package:sp2/screens/columnas.dart';
 
 class TemaScreen extends StatefulWidget {
-  const TemaScreen({super.key});
+  const TemaScreen({required String cursoID, super.key});
 
   @override
   State<TemaScreen> createState() => _TemaScreenState();
@@ -17,7 +17,9 @@ class _TemaScreenState extends State<TemaScreen> {
           automaticallyImplyLeading: false,
           title: const Text('Bottom App Bar Demo'),
         ),
-        body: const DynamicColumnPage(),
+        body: DynamicColumnPage(
+          cursoId: 'CS101',
+        ),
         floatingActionButton: SizedBox(
           height: 100.0,
           width: 100.0,
