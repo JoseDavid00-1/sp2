@@ -1,73 +1,33 @@
 import 'package:flutter/material.dart';
 
+class Tema {
+  final String titulo;
+  final String descripcion;
+
+  Tema({required this.titulo, required this.descripcion});
+}
+
+// ignore: must_be_immutable
 class DynamicColumnPage extends StatefulWidget {
   DynamicColumnPage({required String cursoId, super.key});
-  final temas = {
-    "course": "Matemática 1",
-    "topics": [
-      {
-        "id": "M101T1",
-        "name": "Límites y Continuidad",
-        "description":
-            "Introducción al concepto de límites de funciones y su importancia en la continuidad. Análisis de comportamientos en puntos de discontinuidad."
-      },
-      {
-        "id": "M101T2",
-        "name": "Derivadas",
-        "description":
-            "Estudio de la derivada como tasa de cambio instantánea. Aplicaciones en la física, economía y otros campos. Técnicas de derivación."
-      },
-      {
-        "id": "M101T3",
-        "name": "Aplicaciones de la Derivada",
-        "description":
-            "Exploración de las aplicaciones de las derivadas en problemas de optimización, análisis de crecimiento y decrecimiento de funciones, y puntos críticos."
-      },
-      {
-        "id": "M101T4",
-        "name": "Integrales",
-        "description":
-            "Introducción a las integrales indefinidas y definidas. Interpretación geométrica como el área bajo una curva y técnicas básicas de integración."
-      },
-      {
-        "id": "M101T5",
-        "name": "Aplicaciones de la Integral",
-        "description":
-            "Uso de integrales en problemas de áreas, volúmenes de sólidos de revolución, y aplicaciones en diversas disciplinas."
-      }
-    ]
-  };
 
-  final prerequisitos = {
-    "course": "Matemática 1",
-    "prerequisites": {
-      "Límites y Continuidad": [
-        {"id": "PR101", "name": "Funciones y Gráficas"},
-        {"id": "PR102", "name": "Álgebra Básica"},
-        {"id": "PR103", "name": "Concepto de Número Real"}
-      ],
-      "Derivadas": [
-        {"id": "PR201", "name": "Límites"},
-        {"id": "PR202", "name": "Función Lineal"},
-        {"id": "PR203", "name": "Razones de Cambio"}
-      ],
-      "Aplicaciones de la Derivada": [
-        {"id": "PR301", "name": "Derivadas"},
-        {"id": "PR302", "name": "Funciones Polinomiales"},
-        {"id": "PR303", "name": "Técnicas de Derivación"}
-      ],
-      "Integrales": [
-        {"id": "PR401", "name": "Antiderivadas"},
-        {"id": "PR402", "name": "Derivadas"},
-        {"id": "PR403", "name": "Áreas Bajo la Curva"}
-      ],
-      "Aplicaciones de la Integral": [
-        {"id": "PR501", "name": "Integrales"},
-        {"id": "PR502", "name": "Geometría de Sólidos"},
-        {"id": "PR503", "name": "Funciones Continuas"}
-      ]
-    }
-  };
+  List<Tema> temasMatematica1 = [
+    Tema(titulo: "Álgebra", descripcion: "Estudio de estructuras algebraicas."),
+    Tema(
+        titulo: "Geometría",
+        descripcion: "Estudio de las propiedades del espacio."),
+    Tema(
+        titulo: "Cálculo",
+        descripcion: "Análisis de cambios y tasas de variación."),
+    Tema(
+        titulo: "Estadística",
+        descripcion: "Análisis de datos y probabilidades."),
+    Tema(
+        titulo: "Trigonometría",
+        descripcion:
+            "Estudio de las relaciones entre los ángulos y los lados de los triángulos.")
+  ];
+
   @override
   // ignore: library_private_types_in_public_api
   _DynamicColumnPageState createState() => _DynamicColumnPageState();
@@ -76,6 +36,56 @@ class DynamicColumnPage extends StatefulWidget {
 class _DynamicColumnPageState extends State<DynamicColumnPage> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
+
+  final Map<String, dynamic> prerequisitos = {
+    "course": "Matemáticas",
+    "prerequisites": {
+      "Álgebra": [
+        {"id": "PR101", "name": "Números Reales"},
+        {"id": "PR102", "name": "Operaciones Básicas"},
+        {"id": "PR103", "name": "Ecuaciones Lineales"}
+      ],
+      "Geometría": [
+        {"id": "PR201", "name": "Álgebra Básica"},
+        {"id": "PR202", "name": "Trigonometía"},
+        {"id": "PR203", "name": "Proporciones"}
+      ],
+      "Cálculo": [
+        {"id": "PR301", "name": "Álgebra"},
+        {"id": "PR302", "name": "Geometría"},
+        {"id": "PR303", "name": "Límites y Continuidad"}
+      ],
+      "Estadística": [
+        {"id": "PR401", "name": "Álgebra"},
+        {"id": "PR402", "name": "Probabilidad Básica"},
+        {"id": "PR403", "name": "Análisis de Datos"}
+      ],
+      "Trigonometría": [
+        {"id": "PR501", "name": "Álgebra"},
+        {"id": "PR502", "name": "Geometría"},
+        {"id": "PR503", "name": "Funciones Trigonométricas"}
+      ]
+    }
+  };
+
+  final Map<String, dynamic> cursosFuturos = {
+    "course": "Matemáticas",
+    "Futuros": {
+      "Álgebra": ["Cálculo", "Estadística", "Matemáticas Discretas"],
+      "Geometría": ["Trigonometría", "Cálculo", "Física"],
+      "Cálculo": [
+        "Análisis Matemático",
+        "Ecuaciones Diferenciales",
+        "Optimización"
+      ],
+      "Estadística": [
+        "Investigación de Operaciones",
+        "Análisis de Datos",
+        "Econometría"
+      ],
+      "Trigonometría": ["Cálculo", "Física", "Ingeniería"]
+    }
+  };
 
   @override
   void initState() {
@@ -93,17 +103,61 @@ class _DynamicColumnPageState extends State<DynamicColumnPage> {
     });
   }
 
+  List<Widget> _getPrerequisites() {
+    String currentCourse =
+        prerequisitos["prerequisites"].keys.elementAt(_currentPage);
+    List<dynamic> currentPrerequisites =
+        prerequisitos["prerequisites"][currentCourse];
+
+    return currentPrerequisites.map<Widget>((prerequisite) {
+      return Container(
+        margin: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(16.0),
+        color: Colors.greenAccent,
+        child: Text(
+          prerequisite["name"],
+          style: const TextStyle(fontSize: 18),
+        ),
+      );
+    }).toList();
+  }
+
+  List<Widget> _getFutureCourses() {
+    String currentCourse =
+        cursosFuturos["Futuros"].keys.elementAt(_currentPage);
+    List<dynamic> futureCourses = cursosFuturos["Futuros"][currentCourse];
+    return futureCourses.map<Widget>((course) {
+      return Container(
+        margin: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(16.0),
+        color: Colors.blueAccent,
+        child: Text(
+          course,
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+      );
+    }).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         // Columna izquierda que cambia dinámicamente
         Expanded(
-          child: Center(
-            child: Text(
-              'Información para el elemento $_currentPage',
-              style: const TextStyle(fontSize: 18, color: Colors.black),
-            ),
+          child: Column(
+            children: [
+              Text(
+                'Prerequisitos para ${prerequisitos["prerequisites"].keys.elementAt(_currentPage)}:',
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              Expanded(
+                child: ListView(
+                  children: _getPrerequisites(),
+                ),
+              ),
+            ],
           ),
         ),
 
@@ -115,6 +169,7 @@ class _DynamicColumnPageState extends State<DynamicColumnPage> {
             scrollDirection: Axis.vertical,
             itemCount: 5,
             itemBuilder: (context, index) {
+              var tema = widget.temasMatematica1[index];
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20.0),
                 child: Center(
@@ -124,7 +179,7 @@ class _DynamicColumnPageState extends State<DynamicColumnPage> {
                     height: 200,
                     child: Center(
                       child: Text(
-                        'Elemento $index',
+                        tema.titulo,
                         style:
                             const TextStyle(fontSize: 24, color: Colors.white),
                       ),
@@ -137,12 +192,22 @@ class _DynamicColumnPageState extends State<DynamicColumnPage> {
         ),
 
         // Columna derecha (se podría implementar algo similar para cambiar su contenido)
-        const Expanded(
-          child: Center(
-            child: Text(
-              'Columna derecha fija',
-              style: TextStyle(fontSize: 18, color: Colors.black),
-            ),
+        Expanded(
+          child: Column(
+            children: [
+              Text(
+                'Cursos donde se utilizará ${cursosFuturos["Futuros"].keys.elementAt(_currentPage)}:',
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              Expanded(
+                child: Center(
+                  child: ListView(
+                    children: _getFutureCourses(),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ],

@@ -2,23 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:sp2/screens/columnas.dart';
 
 class TemaScreen extends StatefulWidget {
-  const TemaScreen({required String cursoID, super.key});
-
+  const TemaScreen({required this.cursoID, super.key});
+  final String cursoID;
   @override
   State<TemaScreen> createState() => _TemaScreenState();
 }
 
 class _TemaScreenState extends State<TemaScreen> {
+  final Map<String, String> courses = {
+    "CS101": "Matemática 1",
+    "PH101": "Física 1",
+    "CS201": "Ciencias de la Computación 1",
+    "INF101": "Informática 1",
+    "TD101": "Tecnología Descriptiva",
+    "TIA101": "Técnicas de Investigación y Aprendizaje"
+  };
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: const Text('Bottom App Bar Demo'),
+          title: Text(courses[widget.cursoID]!),
         ),
         body: DynamicColumnPage(
-          cursoId: 'CS101',
+          cursoId: widget.cursoID,
         ),
         floatingActionButton: SizedBox(
           height: 100.0,

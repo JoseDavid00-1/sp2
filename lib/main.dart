@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sp2/screens/home.dart';
+import 'package:sp2/screens/drawboard.dart';
 
 /// Flutter code sample for [Scaffold].
 
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomeScreen(),
+      home: DrawBoard(),
     );
   }
 }
