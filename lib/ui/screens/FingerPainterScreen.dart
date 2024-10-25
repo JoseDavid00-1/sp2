@@ -46,7 +46,7 @@ class _FingerPainterScreenState extends State<FingerPainterScreen> {
             lines: lines,
           ),
         ),
-      ),
+      )
     );
   }
 }

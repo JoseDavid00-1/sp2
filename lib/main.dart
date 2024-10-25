@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sp2/screens/FingerPainterScreen.dart';
-import 'package:sp2/screens/drawboard.dart';
+import 'package:sp2/ui/screens/login.dart';
 
 /// Flutter code sample for [Scaffold].
 
@@ -12,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: FingerPainterScreen(),
+      home: LoginPage(),
     );
   }
 }
