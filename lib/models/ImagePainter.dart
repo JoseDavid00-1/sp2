@@ -30,7 +30,7 @@ class ImagePainter extends CustomPainter {
     shader.setFloat(1, size.height);
 
     // texture
-    shader.setImageSampler(0, image!);
+    shader.setImageSampler(0, image);
 
     return shader;
   }

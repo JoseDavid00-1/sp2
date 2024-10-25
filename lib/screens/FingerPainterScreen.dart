@@ -105,7 +105,7 @@ class _FingerPainterScreenState extends State<FingerPainterScreen> {
             children: [
               if (_image != null && _program != null)
                 CustomPaint(
-                  size: MediaQuery.sizeOf(context),
+                  size: Size(300, 300),
                   painter: ImagePainter(
                     image: _image!,
                     program: _program!,
@@ -114,7 +114,7 @@ class _FingerPainterScreenState extends State<FingerPainterScreen> {
               if (lines.isNotEmpty)
                 RepaintBoundary(
                   child: CustomPaint(
-                    size: MediaQuery.sizeOf(context),
+                    size: Size(300, 300),
                     painter: FingerPainter(
                       line: lines.last,
                     ),
