@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sp2/models/LineObject.dart';
-import 'package:sp2/widgets/FingerPainter.dart';
+import 'package:sp2/ui/widgets/FingerPainter.dart';
 
 class FingerPainterScreen extends StatefulWidget {
   const FingerPainterScreen({super.key});
@@ -33,20 +33,19 @@ class _FingerPainterScreenState extends State<FingerPainterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: _onClearLines,
-        child: const Icon(Icons.clear),
-      ),
-      body: GestureDetector(
-        onPanStart: _onPanStart,
-        onPanUpdate: _onPanUpdate,
-        child: CustomPaint(
-          size: MediaQuery.sizeOf(context),
-          painter: FingerPainter(
-            lines: lines,
-          ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _onClearLines,
+          child: const Icon(Icons.clear),
         ),
-      )
-    );
+        body: GestureDetector(
+          onPanStart: _onPanStart,
+          onPanUpdate: _onPanUpdate,
+          child: CustomPaint(
+            size: MediaQuery.sizeOf(context),
+            painter: FingerPainter(
+              lines: lines,
+            ),
+          ),
+        ));
   }
 }

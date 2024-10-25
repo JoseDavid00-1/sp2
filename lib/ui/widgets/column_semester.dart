@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sp2/screens/tema_screen.dart';
-import 'package:sp2/widgets/card_course.dart';
+import 'package:sp2/ui/screens/tema_screen.dart';
+import 'package:sp2/ui/widgets/card_course.dart';
 
 class ColumnSemester extends StatelessWidget {
   final MapEntry<String, List<Map<String, dynamic>>> semester;

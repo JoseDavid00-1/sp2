@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sp2/screens/columnas.dart';
+import 'package:sp2/ui/screens/columnas.dart';
 
 class TemaScreen extends StatefulWidget {
   const TemaScreen({required this.cursoID, super.key});

@@ -10,4 +10,16 @@ class LineObject {
     this.color = Colors.red,
     this.strokeWidth = 20.0,
   });
+
+  LineObject copyWith({
+    List<Offset>? points,
+    Color? color,
+    double? strokeWidth,
+  }) {
+    return LineObject(
+      points: points ?? this.points,
+      color: color ?? this.color,
+      strokeWidth: strokeWidth ?? this.strokeWidth,
+    );
+  }
 }
