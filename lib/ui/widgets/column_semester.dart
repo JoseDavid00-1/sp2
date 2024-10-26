@@ -47,11 +47,12 @@ class ColumnSemester extends StatelessWidget {
                                   padding: const EdgeInsets.all(10),
                                   child: GestureDetector(
                                     onTap: () {
-                                      MaterialPageRoute route =
-                                          MaterialPageRoute(
-                                              builder: (context) => TemaScreen(
-                                                  cursoID: course["id"]));
-                                      Navigator.push(context, route);
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              TemaScreen(cursoID: course["id"]),
+                                        ),
+                                      );
                                     },
                                     child: CourseCard(
                                       name: course["name"],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sp2/widgets/column_semester.dart';
+import 'package:sp2/ui/widgets/column_semester.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

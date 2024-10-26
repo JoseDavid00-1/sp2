@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sp2/ui/screens/columnas.dart';
+import 'package:sp2/ui/screens/draw.dart';
 
 class TemaScreen extends StatefulWidget {
   const TemaScreen({required this.cursoID, super.key});
@@ -22,8 +23,8 @@ class _TemaScreenState extends State<TemaScreen> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: Text(courses[widget.cursoID]!),
+          title: const Center(child: Text('Note Search')),
+          backgroundColor: Theme.of(context).colorScheme.onPrimary,
         ),
         body: DynamicColumnPage(
           cursoId: widget.cursoID,
@@ -33,7 +34,13 @@ class _TemaScreenState extends State<TemaScreen> {
           width: 100.0,
           child: FittedBox(
             child: FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const MyHomePage(),
+                  ),
+                );
+              },
               tooltip: 'Edit Note',
               child: const Icon(
                 Icons.create,
@@ -57,28 +64,6 @@ class _DemoBottomAppBar extends StatelessWidget {
     return BottomAppBar(
       shape: const CircularNotchedRectangle(),
       color: Colors.blue,
-      child: IconTheme(
-        data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
-        child: Row(
-          children: <Widget>[
-            IconButton(
-              tooltip: 'Open navigation menu',
-              icon: const Icon(Icons.menu),
-              onPressed: () {},
-            ),
-            IconButton(
-              tooltip: 'Search',
-              icon: const Icon(Icons.search),
-              onPressed: () {},
-            ),
-            IconButton(
-              tooltip: 'Favorite',
-              icon: const Icon(Icons.favorite),
-              onPressed: () {},
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
