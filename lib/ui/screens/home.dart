@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-=======
 import 'package:sp2/services/ApiServer.dart';
->>>>>>> 287f81a14abcb73388d3128ff30270bfeccf8a21
+import 'package:sp2/ui/widgets/AppBarWidget.dart';
 import 'package:sp2/ui/widgets/column_semester.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -31,10 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Center(child: Text('Note Search')),
-        backgroundColor: Theme.of(context).colorScheme.onPrimary,
-      ),
+      appBar: AppBarWidget(title: 'NoteSearch'),
       body: FutureBuilder<Map<String, List<Map<String, dynamic>>>>(
         future: semestersFuture,
         builder: (context, snapshot) {
