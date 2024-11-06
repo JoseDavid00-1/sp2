@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sp2/ui/screens/base.dart';
 import 'package:sp2/ui/screens/login.dart';
+import 'package:sp2/ui/screens/menu.dart';
 
 /// Flutter code sample for [Scaffold].
 
@@ -11,7 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: LoginPage(),
+      debugShowCheckedModeBanner: false,
+      home: MenuScreen(),
     );
   }
 }

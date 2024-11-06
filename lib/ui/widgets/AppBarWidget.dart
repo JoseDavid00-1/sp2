@@ -5,16 +5,35 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget> actions;
 
   AppBarWidget({
-    this.title = 'Default Title',
+    this.title = 'Note Search',
     this.actions = const [],
   });
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Center(child: Text('Note Search')),
-      backgroundColor: Theme.of(context).colorScheme.onPrimary,
-      actions: actions,
+      title: Text(
+        title,
+        style: TextStyle(fontSize: 30.00), // Aplica el color del texto aquí
+      ),
+      actions: [
+        IconButton(
+            onPressed: () {
+              print("Action Button 1");
+            },
+            icon: Icon(Icons.home)),
+        IconButton(
+            onPressed: () {
+              print("Action Button 1");
+            },
+            icon: Icon(Icons.apps)),
+        IconButton(
+            onPressed: () {
+              print("Action Button 1");
+            },
+            icon: Icon(Icons.account_circle)),
+      ],
+      centerTitle: true,
     );
   }
 
