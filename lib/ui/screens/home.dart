@@ -20,8 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<Map<String, List<Map<String, dynamic>>>> fetchSemesters() async {
-    APIService apiService =
-        APIService('https://tu-api-url.com'); // Cambia esto a tu URL real
+    APIService apiService = APIService(
+        'us-central1-note-439723.cloudfunctions.net'); // Cambia esto a tu URL real
     return await apiService
         .fetchSemesters(); // Asegúrate de tener este método en APIService
   }

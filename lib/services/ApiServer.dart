@@ -7,9 +7,10 @@ class APIService {
   APIService(this.baseUrl);
 
   Future<Map<String, List<Map<String, dynamic>>>> fetchSemesters() async {
-    final response = await http.get(Uri.parse('$baseUrl/cursos'));
+    final response = await http.get(Uri.https('$baseUrl', '/cursos'));
 
     if (response.statusCode == 200) {
+      print(response.body.toString());
       final Map<String, dynamic> jsonResponse = json.decode(response.body);
 
       // Asegúrate de que el JSON sea un mapa con claves de tipo String

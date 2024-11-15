@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sp2/services/DataService.dart';
+import 'package:sp2/ui/screens/home.dart';
 import 'package:sp2/ui/widgets/AppBarWidget.dart';
 import 'package:sp2/ui/widgets/menu/CourseButton.dart'; // Asegúrate de que esta ruta sea correcta
 
@@ -88,12 +89,16 @@ class _MenuScreenState extends State<MenuScreen> {
                           itemBuilder: (context, index) {
                             final course = courses[index];
                             return CourseButton(
-                              courseName: course['name'],
-                              iconName: course['icon'],
-                              color: course['color'],
-                              onPressed: () => showCourseDetails(
-                                  courso['id']), // Pasar el ID del curso
-                            );
+                                courseName: course['name'],
+                                iconName: course['icon'],
+                                color: course['color'],
+                                onPressed: () => Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const HomeScreen(),
+                                      ),
+                                    ) // Pasar el ID del curso
+                                );
                           },
                         ),
                       ),

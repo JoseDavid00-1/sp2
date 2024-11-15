@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sp2/ui/screens/home.dart';
+import 'package:sp2/ui/screens/menu.dart';
 
 class LoginCard extends StatelessWidget {
   @override
@@ -27,7 +27,7 @@ class LoginCard extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const HomeScreen(),
+                        builder: (context) => const MenuScreen(),
                       ),
                     );
                   },
