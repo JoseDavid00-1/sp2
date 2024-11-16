@@ -152,7 +152,8 @@ class _DynamicColumnPageState extends State<DynamicColumnPage> {
                 style:
                     const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              Expanded(
+              Flexible(
+                fit: FlexFit.loose,
                 child: ListView(
                   children: _getPrerequisites(),
                 ),
@@ -200,7 +201,8 @@ class _DynamicColumnPageState extends State<DynamicColumnPage> {
                 style:
                     const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              Expanded(
+              Flexible(
+                fit: FlexFit.loose,
                 child: Center(
                   child: ListView(
                     children: _getFutureCourses(),
