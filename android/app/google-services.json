@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "722675635524",
+    "project_id": "note-search-g",
+    "storage_bucket": "note-search-g.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722675635524:android:3d88b60e84fa66c1b5f311",
+        "android_client_info": {
+          "package_name": "com.galileo.notesearch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2VSjmsEz2m_zeAiVZZ_Jd3MZ3LBs-ck4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

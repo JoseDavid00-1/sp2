@@ -1,4 +1,4 @@
-package com.example.sp2
+package com.galileo.notesearch
 
 import io.flutter.embedding.android.FlutterActivity
 
