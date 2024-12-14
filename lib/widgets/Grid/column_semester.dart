@@ -56,12 +56,7 @@ class ColumnSemester extends StatelessWidget {
                                 },
                                 child: CourseCard(
                                   name: course.name,
-                                  borderColor: Color(
-                                    int.parse(
-                                      course.colorHex.replaceAll('0x', ''),
-                                      radix: 16,
-                                    ),
-                                  ),
+                                  borderColor: course.color,
                                   emoji:
                                       course.emoji, // Pasar el emoji del curso
                                 ),

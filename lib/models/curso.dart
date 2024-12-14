@@ -1,15 +1,18 @@
+import 'package:flutter/material.dart';
+import 'package:notesearch/utils/utils_colores.dart';
+
 class Course {
   final int semester;
   final int id;
   final String name;
-  final String colorHex;
-  final String? emoji; // Cambiado a opcional
+  final Color color;
+  final String? emoji;
 
   Course({
     required this.semester,
     required this.id,
     required this.name,
-    required this.colorHex,
+    required this.color,
     this.emoji,
   });
 
@@ -19,7 +22,8 @@ class Course {
           0, // Manejo seguro de conversiones
       id: int.tryParse(map['id'].toString()) ?? 0, // Convertir ID a int
       name: map['name'] as String,
-      colorHex: map['colorHex'] as String,
+      // Utiliza getColorFromHex para asignar el color
+      color: UtilsColores.getColorFromHex(map['color'] as String),
       emoji: map['emoji'] as String?, // Puede ser nulo
     );
   }

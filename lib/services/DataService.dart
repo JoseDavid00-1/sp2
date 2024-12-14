@@ -1,5 +1,6 @@
 // data_service.dart
 import 'dart:async';
+import 'dart:collection';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:notesearch/models/curso.dart';
@@ -51,8 +52,7 @@ class DataService {
     if (response.statusCode == 200) {
       final Map<String, dynamic> jsonResponse = json.decode(response.body);
 
-      // Crear una lista de listas de cursos
-      List<List<Course>> coursesBySemester = [];
+      SplayTreeMap<int, List<Course>> coursesBySemesterMap = SplayTreeMap();
 
       jsonResponse.forEach((semesterKey, courseList) {
         // Extraer el número del semestre desde la clave (e.g., "SEMESTRE 1")
@@ -72,11 +72,15 @@ class DataService {
           }).toList();
 
           // Agregar la lista de cursos al semestre correspondiente
-          coursesBySemester.add(semesterCourses);
+          coursesBySemesterMap[semesterNumber] = semesterCourses;
         } else {
           print('Clave de semestre no válida o datos no válidos: $semesterKey');
         }
       });
+
+// Convertir el SplayTreeMap a una lista ordenada por semestre
+      List<List<Course>> coursesBySemester =
+          coursesBySemesterMap.values.toList();
 
       return coursesBySemester;
     } else {

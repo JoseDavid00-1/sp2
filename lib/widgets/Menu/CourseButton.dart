@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CourseButton extends StatelessWidget {
   final String courseName;
   final String emoji;
-  final String color;
+  final Color color;
   final VoidCallback onPressed;
 
   const CourseButton({
@@ -14,23 +14,6 @@ class CourseButton extends StatelessWidget {
     required this.onPressed,
   });
 
-  // Método para convertir un color hexadecimal en un Color de Flutter
-  Color getColorFromHex(String hexColor) {
-    try {
-      if (hexColor.startsWith('0x') && hexColor.length == 10) {
-        // Si ya tiene el formato correcto, lo convertimos directamente
-        return Color.fromARGB(255, 148, 148, 148);
-      } else {
-        throw FormatException(
-            'El color debe estar en formato "0xAARRGGBB" con 8 dígitos.');
-      }
-    } catch (e) {
-      // Manejo de errores con un color por defecto
-      debugPrint('Error al procesar el color: $e');
-      return Colors.grey; // Color por defecto
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -39,7 +22,7 @@ class CourseButton extends StatelessWidget {
         height: 70.0, // Altura ajustada para acomodar texto
         margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0),
         decoration: BoxDecoration(
-          color: getColorFromHex(color),
+          color: color,
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: Row(

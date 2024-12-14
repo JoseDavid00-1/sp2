@@ -63,7 +63,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         child: CourseButton(
                           courseName: course.name,
                           emoji: course.emoji ?? '📘',
-                          color: course.colorHex,
+                          color: course.color,
                           onPressed: () {
                             selectCourse(
                                 course.id); // Actualiza el curso seleccionado
